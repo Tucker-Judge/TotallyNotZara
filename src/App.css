@@ -1,0 +1,20 @@
+.card {
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.pictureSize {
+  flex-wrap: wrap;
+  height: 200px;
+  width: 200px;
+}
+.App{
+  background-color: brown;
+}
+.banner_title{
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.filter{
+  justify-content: center;
+}
