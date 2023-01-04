@@ -1,12 +1,17 @@
+
 import './App.css';
 import { useEffect, useState } from 'react';
 import Homepage from './Homepage'
 import Bar from './Bar';
 import Cart from './Cart'
+
+
 function App() {
   const [cloths, setCloths] = useState([])
   const [search, setSearch] = useState("")
-  const [inCart,setInCart] = useState([])
+  const [toCart, setToCart] = useState([])
+ 
+
   useEffect(()=>{
     const request = async() => {
       let req = await fetch ("http://localhost:3000/clothing")
@@ -16,19 +21,29 @@ function App() {
     }
     request()
   },[])
-  const addToCart = (cloth) => {
-    if(inCart.map(p=>p.id).includes(cloth.id)) return;
-    setCloths([...inCart,cloth])
-  }
-  const filter = cloths.filter((cloth) => {return(
-    cloth.name.toLowerCase().includes(search.toLowerCase())
-  )})
+
+const addToCart = (cloth) => {
+  setToCart([...toCart,cloth])
+}
+  
+
+  
+  
   return (
+    
     <div className="App">
-      <Bar search={search} setsearch={setSearch}/>
-      <Cart inCart = {inCart} setCloths={setCloths} setInCart = {setInCart}/>
-      <Homepage cloths = {cloths} addToCart={addToCart}/>
+      <h1>
+      <Bar search={search} setSearch={setSearch}/>
+      </h1>
+      <h2>
+      <Cart toCart={toCart} setToCart={setToCart}/>
+      </h2>
+      <h3>
+      <Homepage cloths ={cloths} search={search} addToCart={addToCart}/>
+      </h3>
     </div>
+    
   );
 }
+
 export default App;
