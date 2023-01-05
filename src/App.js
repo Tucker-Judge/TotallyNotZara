@@ -1,9 +1,10 @@
 
 import './App.css';
 import { useEffect, useState } from 'react';
-import Homepage from './Homepage'
-import Bar from './Bar';
-import Cart from './Cart'
+import Homepage from './Components/Homepage'
+import Bar from './Components/Bar';
+import Cart from './Components/Cart'
+import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
 
 function App() {
@@ -11,6 +12,11 @@ function App() {
   const [search, setSearch] = useState("")
   const [toCart, setToCart] = useState([])
  
+  // const Router = createBrowserRouter({
+  //   path: "/",
+  //   element: <Bar search={search} setSearch={setSearch}/>
+
+  // })
 
   useEffect(()=>{
     const request = async() => {
@@ -33,6 +39,7 @@ const addToCart = (cloth) => {
     
     <div className="App">
       <h1>
+      {/* <Router/> */}
       <Bar search={search} setSearch={setSearch}/>
       </h1>
       <h2>
