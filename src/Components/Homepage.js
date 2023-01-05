@@ -1,6 +1,6 @@
 import ClothingCard from "./ClothingCard"
 
-function Homepage ({cloths,search,addToCart}) {
+function Homepage ({cloths,search,addToCart,addToWishlist}) {
   const filter = cloths.filter((cloth) => {return(
         cloth.name.toLowerCase().includes(search.toLowerCase())
       )})
@@ -10,7 +10,7 @@ function Homepage ({cloths,search,addToCart}) {
         {
     filter.map((cloth) => {
         return(
-            <ClothingCard className = "container" cloth = {cloth} addToCart={addToCart}/>
+            <ClothingCard className = "container" cloth = {cloth} addToCart={addToCart} addToWishlist={addToWishlist}/>
         )
     })
   }
